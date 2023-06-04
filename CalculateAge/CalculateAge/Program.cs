@@ -55,13 +55,13 @@ namespace CalculateAge
 
                 #region Receive Values From User
                 Console.Write("Enter year of birth : ");
-                int.TryParse(Console.ReadLine(), out int birthYear);
+                int birthYear = int.Parse(Console.ReadLine());
 
                 Console.Write("Enter month of birth : ");
-                int.TryParse(Console.ReadLine(), out int birthMonth);
+                int birthMonth = int.Parse(Console.ReadLine());
 
                 Console.Write("Enter day of birth : ");
-                int.TryParse(Console.ReadLine(), out int birthDay);
+                int birthDay = int.Parse(Console.ReadLine());
                 #endregion
 
                 #region Calculates Values To Human Readable Format
