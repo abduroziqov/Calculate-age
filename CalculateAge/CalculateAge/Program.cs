@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace CalculateAge
 {
@@ -45,7 +46,7 @@ namespace CalculateAge
         {
             DateTime dateTime = DateTime.Now;
 
-            DateOnly dateOnly = DateOnly.FromDateTime(dateTime);
+            DateOnly nowDate = DateOnly.FromDateTime(dateTime);
 
             try
             {
@@ -64,21 +65,13 @@ namespace CalculateAge
                 #endregion
 
                 #region Calculates Values To Human Readable Format
-                int calculateYear = dateOnly.Year - birthYear;
+                DateOnly.TryParse($"{birthDay}/{birthMonth}/{birthYear}", out DateOnly lastDate);
 
-                int calculateMonth = dateOnly.Month - birthMonth;
+                int calculateYear = nowDate.Year - lastDate.Year;
+                int calculateMonth = nowDate.Month - lastDate.Month;
+                int calculateDay = nowDate.Day - lastDate.Day;
 
-                if (birthDay < dateOnly.Day)
-                {
-                    int calculateDay = (dateOnly.Day) - birthDay;
-
-                    Console.WriteLine($"The person was born {calculateMonth} months {calculateDay} days {calculateYear} years ago.\n");
-                }
-                else
-                {
-                    int calculateDay = (dateOnly.Day + 30) - birthDay;
-                    Console.WriteLine($"The person was born {calculateMonth} months {calculateDay} days {calculateYear} years ago.\n");
-                }
+                Console.WriteLine($"The person was born {calculateMonth} months {calculateDay} days {calculateYear} years ago.\n");
                 #endregion
             }
             catch (Exception)
