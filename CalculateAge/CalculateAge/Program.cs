@@ -12,7 +12,7 @@
             {
                 return;
             }
-            
+
             DateTime nowDate = DateTime.Now;
 
             string[] lastDate = Date.Split('/');
@@ -34,10 +34,10 @@
 
             Console.WriteLine($"Person was born {Day} days {Month} months {Year} years ago.");
         }
-        
+
         static void Main()
         {
-            CalcDifference("04/12/2003");
+            CalcDifference("04/18/2004");
         }
     }
 }
