@@ -44,9 +44,7 @@ namespace CalculateAge
         }
         public static void CalculateAge()
         {
-            DateTime dateTime = DateTime.Now;
-
-            DateOnly nowDate = DateOnly.FromDateTime(dateTime);
+            DateOnly nowDate = DateOnly.FromDateTime(DateTime.Now);
 
             try
             {
