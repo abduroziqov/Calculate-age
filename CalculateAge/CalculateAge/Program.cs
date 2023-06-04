@@ -17,13 +17,13 @@
 
             string[] lastDate = Date.Split('/');
 
-            int Month = nowDate.Month - Convert.ToInt32(lastDate[1]);
+            int Month = nowDate.Month - Convert.ToInt32(lastDate[0]);
 
-            int Day = DateTime.DaysInMonth(Convert.ToInt32(lastDate[2]), Convert.ToInt32(lastDate[1])) - Convert.ToInt32(lastDate[0]);
+            int Day = DateTime.DaysInMonth(Convert.ToInt32(lastDate[2]), Convert.ToInt32(lastDate[0])) - Convert.ToInt32(lastDate[1]);
 
             int Year = nowDate.Year;
 
-            if (nowDate.Month >= Convert.ToInt32(lastDate[1]))
+            if (nowDate.Month >= Convert.ToInt32(lastDate[0]))
             {
                 Year -= Convert.ToInt32(lastDate[2]);
             }
@@ -37,7 +37,7 @@
         
         static void Main()
         {
-            CalcDifference("");
+            CalcDifference("04/12/2003");
         }
     }
 }
