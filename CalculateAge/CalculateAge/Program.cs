@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace CalculateAge
+﻿namespace CalculateAge
 {
     internal class Program
     {
@@ -17,7 +15,7 @@ namespace CalculateAge
 
             try
             {
-                Color color = Color.Green;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("------Welcome to age calculate program------");
 
                 Console.Write("Enter year of birth : ");
@@ -50,6 +48,8 @@ namespace CalculateAge
                 Console.WriteLine("Please enter valid value.");
                 CalculateAge();
             }
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
