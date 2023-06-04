@@ -65,7 +65,7 @@ namespace CalculateAge
                 #endregion
 
                 #region Calculates Values To Human Readable Format
-                DateOnly.TryParse($"{birthDay}/{birthMonth}/{birthYear}", out DateOnly lastDate);
+                DateOnly.TryParse($"{birthMonth}/{birthDay}/{birthYear}", out DateOnly lastDate);
 
                 int calculateYear = nowDate.Year - lastDate.Year;
                 int calculateMonth = nowDate.Month - lastDate.Month;
