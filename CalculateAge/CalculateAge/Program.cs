@@ -4,7 +4,17 @@
     {
         static void CalcDifference(string Date)
         {
+            try
+            {
+                DateTime.Parse(Date);
+            }
+            catch
+            {
+                return;
+            }
+            
             DateTime nowDate = DateTime.Now;
+
             string[] lastDate = Date.Split('/');
 
             int Month = nowDate.Month - Convert.ToInt32(lastDate[1]);
@@ -21,14 +31,13 @@
             {
                 Year -= Convert.ToInt32(lastDate[2]) + 1;
             }
-            
 
             Console.WriteLine($"Person was born {Day} days {Month} months {Year} years ago.");
         }
         
         static void Main()
         {
-            CalcDifference("12/04/2003");
+            CalcDifference("");
         }
     }
 }
