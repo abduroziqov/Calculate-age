@@ -66,8 +66,15 @@ namespace CalculateAge
                 DateOnly.TryParse($"{birthMonth}/{birthDay}/{birthYear}", out DateOnly lastDate);
 
                 int calculateYear = nowDate.Year - lastDate.Year;
-                int calculateMonth = nowDate.Month - lastDate.Month;
-                int calculateDay = nowDate.Day - lastDate.Day;
+                
+                int calculateMonth = (nowDate.Month < lastDate.Month) ? 
+                                     (nowDate.Month + 12) - lastDate.Month : 
+                                     calculateMonth = nowDate.Month - lastDate.Month;
+                
+
+                int calculateDay = (nowDate.Day < lastDate.Day) ? 
+                                   DateTime.DaysInMonth(nowDate.Year, nowDate.Month) - lastDate.Day :
+                                   nowDate.Day - lastDate.Day;
 
                 Console.WriteLine($"The person was born {calculateMonth} months {calculateDay} days {calculateYear} years ago.\n");
                 #endregion
