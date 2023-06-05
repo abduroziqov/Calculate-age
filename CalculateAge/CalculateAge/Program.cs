@@ -4,40 +4,19 @@
     {
         static void CalcDifference(string Date)
         {
-            try
+            if (DateTime.TryParse(Date, out DateTime parsed_date))
             {
-                DateTime.Parse(Date);
+                int diff_years = DateTime.Now.Year - parsed_date.Year;
+                int diff_months = DateTime.Now.Month - parsed_date.AddYears(-diff_years).Month;
+                int diff_days = DateTime.Now.Day - parsed_date.AddYears(-diff_years).AddMonths(-diff_months).Day;
+
+                Console.WriteLine($"Person was born {diff_days} days {diff_months} months {diff_years} years ago.");
             }
-            catch
-            {
-                return;
-            }
-
-            DateTime nowDate = DateTime.Now;
-
-            string[] lastDate = Date.Split('/');
-
-            int Month = nowDate.Month - Convert.ToInt32(lastDate[0]);
-
-            int Day = DateTime.DaysInMonth(Convert.ToInt32(lastDate[2]), Convert.ToInt32(lastDate[0])) - Convert.ToInt32(lastDate[1]);
-
-            int Year = nowDate.Year;
-
-            if (nowDate.Month >= Convert.ToInt32(lastDate[0]))
-            {
-                Year -= Convert.ToInt32(lastDate[2]);
-            }
-            else
-            {
-                Year -= Convert.ToInt32(lastDate[2]) + 1;
-            }
-
-            Console.WriteLine($"Person was born {Day} days {Month} months {Year} years ago.");
         }
 
         static void Main()
         {
-            CalcDifference("04/18/2004");
+            CalcDifference("04/06/2003");
         }
     }
 }
